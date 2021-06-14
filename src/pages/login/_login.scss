@@ -1,0 +1,106 @@
+.login-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $l-text;
+    animation: fade 1s ease;
+    .login{
+        @keyframes click{
+            50%{
+                transform: scale(.9);
+            }
+            100%{
+                transform: scale(1);
+            }
+        }
+        *{
+            margin-bottom: 1rem;
+        }
+        h1{
+            color:rgba($l-text-v , .85)   ;
+            padding-bottom: 3rem;
+            margin-top: -1rem;
+            margin-left: -4px;
+            font-size: 2.5rem;
+           
+        }
+        width: 50%;
+        height: 50%;
+        .input-form{
+            
+            @import "../component/input/input";
+        }
+        .buttons{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .sign-in, .return{
+                font-size: 1rem;
+                background: none;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                text-transform: capitalize;
+                letter-spacing: 1px;
+                transition: all .4s ease;
+                color: rgba($l-text-v , .75);
+            }
+
+            .sign-in{
+                background-color: rgba($l-pr-txt , .9);
+                color: $l-pr-btn;
+                padding: .75rem 1rem;
+                border-radius: .5rem;
+                &:hover{
+                    background-color: rgba($l-pr-txt , .75);
+                }
+                
+                &:focus{
+                    animation: click .5s ease;
+                }
+            }
+            .return{
+                position: relative;
+                
+                &:focus{
+                    animation: click .5s ease;
+                }
+                &::after{
+                    position: absolute;
+                    content: "";
+                    bottom: -5px;
+                    left: 0;
+                    width: 100%;
+                    height: 3px;
+                    background-color: rgba($l-text-v , .75);
+                    transition: all .5s ease;
+                }
+                &:hover{
+                    color: rgba($l-text-v , .5);
+                    &::after{
+                        background-color: rgba($l-text-v , .5);
+
+                    }
+                }
+            }
+        }
+    }
+
+}
+@media (max-width: 1000px){
+    .login-container{
+        .login{
+            z-index: 33;
+
+            width: 60%;
+            height: 50%;
+        }
+    }
+}
+@media (max-width: 600px){
+    .login-container{
+        .login{
+            width: 75%;
+        }
+    }
+}

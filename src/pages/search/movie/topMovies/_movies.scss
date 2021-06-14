@@ -1,0 +1,11 @@
+.movies{
+    display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(225px,1fr));
+  place-items: center;
+  padding-top: 0;
+  gap:  1.5rem;
+  row-gap: 3rem;
+    color:$l-text;
+    @import "./singleMovie/singleMovie";
+    animation: fade 1s ease ;
+}

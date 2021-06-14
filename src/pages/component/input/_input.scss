@@ -1,0 +1,84 @@
+.input-container{
+    position: relative;
+    margin-bottom: 3rem;
+    animation: fade 1.2s ease;
+
+   input{
+       width: 100%;
+       height: 100%;
+       background-color: transparent;
+       border: none;
+       outline: none;
+       font-size: 1rem;
+       padding: .5rem 0 1rem;
+       position: relative;
+       color: rgba($l-text , .8);
+       transition: all .5s ease;
+       &::placeholder{
+           color: rgba($l-text , .4);
+       }
+   }
+   label{
+       position: absolute;
+       top: -30%;
+       left: 0;
+       height: 100%;
+       width: 100%;
+       pointer-events: none;
+       text-transform: capitalize;
+       border-bottom: 1px solid rgba($l-warning-txt , .75);
+       .content{
+           transition: .4s ease;
+           color: rgba($l-warning-txt , .75);
+           font-size: 17px;
+
+       }
+       .toggle-pwd{
+           position: absolute;
+           right: 5px;
+           top: 50%;
+           color: rgba($l-warning-txt , .75);
+           pointer-events: all;
+           cursor: pointer;
+           padding-bottom: 5px;
+            transition: all .5s ease;
+           &:hover{
+            color: rgba($l-warning-txt , .5);
+           }
+           
+           
+       }
+       overflow: hidden;
+       &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background-color:rgba($l-warning-txt , .75);
+        transform: translateX(-100%);
+        transition: .4s ease;
+
+    }
+   }
+   input:focus-within + label .content,
+   input:valid + label .content{
+       font-size: 14px;
+   }
+   input:focus-within + label::before,
+   input:valid + label::before{
+    transform: translateX(0);
+
+   }
+   p{
+       position: absolute;
+       bottom: -1.5rem;
+       color: $l-fail;
+       &.hide{
+           opacity: 0;
+           pointer-events: none;
+       }
+   }
+
+}

@@ -1,0 +1,90 @@
+.note{
+    padding: 1rem  5rem 1rem  1rem ;
+    background-color: $l-bg;
+    color: rbga($l-text , .75);
+    border-top-right-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    position: fixed;
+    top: 85vh;
+    right: 20px;
+    transition: all .5s ease;
+    pointer-events: none;
+    transform: translateX(200%);
+    text-transform: capitalize;
+    @keyframes fade-out-before {
+        100%{
+           width: calc(2rem + 100%);
+           border-radius: .5rem ;
+        }
+    }
+    @keyframes fade-out {
+       
+        100%{
+            transform: translateX(200%) ;
+            opacity:0;
+            transform-origin: right;
+            border-radius: .5rem ;
+        }
+    }
+    &::before{
+        content: "";
+        position: absolute;
+        left: -1.75rem;
+        top: -2px;
+        background-color: $l-success;
+        width: 1.5rem;
+        height: 102%;
+        border: 2px solid $l-success;
+        border-top-left-radius: .5rem;
+        border-bottom-left-radius: .5rem;
+        animation: fade-out-before .75s ease-in-out 2.85s;
+    }
+    @keyframes fade-in {
+        0%{
+            transform: translate(100%);
+        }
+        100%{
+            transform: translate(0);   
+        }
+    }
+    @keyframes still {
+        0%{
+            transform: translate(0%);
+        }
+        100%{
+            
+            transform: translate(0);   
+        }
+    }
+    
+    animation: fade-in 1s ease ,still 3s ease-in 1s , fade-out 1s ease-out 3.25s;
+    z-index: 10;
+    &.success{
+        border: 2px solid $l-success;
+        color:$l-text;
+        &::before{
+            background-color: $l-success;
+            border: 2px solid $l-success;
+        }
+    }
+    &.warn{
+        border: 2px solid $l-warning;
+        &::before{
+            background-color: $l-warning;
+            border: 2px solid $l-warning;
+        }
+    }
+    &.fail{
+        border: 2px solid $l-fail;
+        &::before{
+            background-color: $l-fail;
+            border: 2px solid $l-fail;
+        }
+    }
+}
+@media (max-width:1000px){
+    .note{
+        padding: 1rem  3rem 1rem  1rem ;
+        font-size: .75rem;
+    }
+}

@@ -1,0 +1,163 @@
+.li{
+    text-transform: capitalize;
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
+    position: relative;
+    transition: all .5s ease;
+    z-index: 2;
+    cursor:pointer;
+    margin-bottom: 1rem;
+    color: $l-bg-txt;
+    font-weight: 600;
+    outline: none;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    a{
+        position: relative;
+        // background-color:  rosybrown;
+        color: rgba( $l-bg-txt,1);
+        transition: all .5s ease;
+        padding: 1.5rem 7rem 1.5rem 4rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        display: flex;
+        border-bottom-left-radius: 1rem;
+        border-top-left-radius: 1rem;
+    }
+    &::before{
+        content: "";
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: $l-bg;
+        transform: translateX(110%);
+        pointer-events: none;
+        z-index: -1;
+        border-bottom-left-radius: 1rem;
+        border-top-left-radius: 1rem;
+        transition: all .5s ease;
+    }
+    &::after{
+        content: "";
+        position: absolute;
+        top: -20%;
+        right: -15%;
+        width: 20%;
+        height: 140%;
+        background-color: $l-bg;
+        border-bottom-left-radius:4rem;
+        border-top-left-radius: 4rem; 
+        transform: translateX(110%) scale(1.1);
+        transition: all .5s ease ;
+
+    }
+    .logo{
+        path{
+
+            fill: $l-pr-txt;
+        }
+    }
+    &:hover{
+        background-color:rgba( $l-bg,.5);
+        a{
+            color: rgba(  $l-pr-txt,.75  );
+        }
+    }
+    &.active{
+        /* 
+        animation: anime 1s ease;
+        animation-direction: alternate;
+        */
+        a{
+            color:  $l-pr-txt;
+
+        }
+        &::before{
+            transform: translateX(0);
+        }
+        &::after{
+            
+            transform: translateX(0) scale(1.1);
+        }
+
+    }
+    
+}
+@media (max-width:1000px){
+    
+        .li{
+            position: relative;
+            display: flex;
+            top: 0%;
+            left: 0%;
+            border-bottom-left-radius:0;
+            border-top-left-radius: 0;
+            border-bottom-right-radius: 1rem;
+            border-top-right-radius: 1rem;
+            padding: 0;
+            transition: all .5s ease;
+            background-color: rgba(  $l-pr,.85  );
+            transform: translateX(-77%) ;
+            z-index: 1;
+            box-shadow: 0 7px 20px -2px rgba(  $l-pr,.25  );
+            a{
+                border-radius: 0 1rem 1rem 0;
+                color: rgba( $l-bg-txt,1);
+                padding: 1.5rem 1.75rem 1.5rem .5rem;
+                transition: all 1s ease;
+                font-weight: 600;
+                letter-spacing: 1px;
+                display: flex;
+            }
+            &::before,&::after{
+                background-color: transparent;
+            }
+            &:hover{
+                transform: translateX(0);
+                background-color: rgba(  $l-pr,.5  );
+                a{
+                    color: rgba( $l-bg-txt,1);
+
+                }
+            }
+            &::before{
+                content: ">";
+                text-align: center;
+                font-size: 16pt;
+                top: 50%;
+                right: 0%;
+                left: auto;
+                width: 24px;
+                height:24px ;
+                background-color: transparent;
+                transform: translate(-10%,-50%);
+               
+            }
+            &::after{
+                display: none;
+            }
+            &.active{
+                transform: translateX(-10px) scale(.85);
+                a{
+                    padding-left: .75rem;
+                    padding-right:1.5rem ;
+                    color: rgba( $l-bg-txt,1);
+
+                }
+                color: rgba( $l-bg-txt,1);
+                background: linear-gradient(90deg, rgba(  $l-pr,.85  ) , rgba(  $l-pr,.5  ) );
+                transition: all .3s ease-in-out;
+                /* a{
+                    padding: 1.5rem 2rem 1.5rem .5rem;
+                } */
+                &::before{
+                    transform: translate(-10%,-50%);
+                }
+            }
+        }
+    
+    
+    
+}

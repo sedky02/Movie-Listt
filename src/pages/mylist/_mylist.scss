@@ -1,0 +1,23 @@
+.list{
+    padding: 3rem 5rem;
+    color: $l-text;
+    h1{
+      animation: fade 1s ease;
+    }
+    .movie-list{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(225px,1fr));
+        place-items: center;
+        padding-right: 1rem;
+        gap:  1.5rem;
+        row-gap: 3rem;
+          color:$l-text;
+          @import "./singleMovie/singleMovie", "../search/empty/empty";
+        animation: fade 1s ease;
+    }
+}
+@media (max-width:1000px){
+  .list{
+    padding: 3rem ;
+  }
+}

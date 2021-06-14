@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition:  background-color .4s ease;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    overflow-x: hidden;
+}
+@keyframes fade {
+       0%{
+           opacity: 0;
+           transform: translateY(10%);
+       } 
+       100%{
+           opacity: 1;
+           transform: translateY(0%);
+       } 
+}
+.App{
+    min-width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-size: 16px;
+    font-family:"poppins", sans-serif;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-areas: ". content ";
+    &.light-mode{
+        @import "./scss_variables/light-theme";
+        @import "./pages/home/home" ,
+         "./pages/login/login" ,
+         "./pages/mylist/mylist",
+         "./pages/nav/nav" ,
+         "./pages/search/search",
+          "./pages/search/movie/movie" , 
+          "./pages/component/notes/note" , 
+          "./pages/home/topMovies/notes/note",
+          "./pages/search/movies/notes/note",
+          "./pages/search/movie/topMovies/notes/note",
+          "./pages/mylist/singleMovie/notes/note";
+         background-color: $l-bg;
+    }
+    &.dark-mode{
+        @import "./scss_variables/dark-theme";
+        @import "./pages/home/home" ,
+         "./pages/login/login" ,
+         "./pages/mylist/mylist",
+         "./pages/nav/nav" ,
+         "./pages/search/search" ,
+          "./pages/search/movie/movie",
+          "./pages/component/notes/note",
+          "./pages/home/topMovies/notes/note",
+          "./pages/search/movies/notes/note",
+          "./pages/search/movie/topMovies/notes/note",
+          "./pages/mylist/singleMovie/notes/note";
+         background-color: $l-bg;
+         
+    }
+    .content{
+        grid-area: content;
+        min-height: 100vh;
+    }
+    
+}
+@media (max-width:1000px){
+    .App{
+        grid-template-columns: 1fr;
+        grid-template-rows: 10vh 90%;
+        grid-template-areas: ". "
+        "content ";
+        .content{
+            min-height: 90vh;
+        }
+    }
+}

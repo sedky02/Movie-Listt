@@ -1,0 +1,10 @@
+.home{
+    @import './topMovies/topMovies';
+    padding: 2.5rem 3rem 6rem;
+    color: $l-text;
+}
+@media (max-width:1000px){
+    .home{
+        padding: 2rem 2.5rem 8rem;
+    }
+}

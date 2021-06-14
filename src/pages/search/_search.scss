@@ -1,0 +1,13 @@
+.search{
+    
+    padding: 2.5rem 3rem ;
+    @import "./searchbar/serach_bar";
+    @import "./empty/empty";
+    @import "./movies/movies";
+    @import "./movie/movie";
+}
+@media (max-width:1000px){
+    .search{
+        padding: 2rem 1rem;
+    }
+}

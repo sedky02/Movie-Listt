@@ -1,0 +1,41 @@
+.top-movies{
+    display: flex ;
+    flex-direction: column;
+    .top{
+        display: flex ;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        text-transform: capitalize;
+        h1{
+            white-space: nowrap;
+        }
+        h1:last-child{
+            color: $l-text;
+            transform: scale(.65);
+            position: relative;
+            transition: color .4s ease;
+            &::before{
+                content: "" ;
+                position: absolute;
+                bottom: -7px;
+                left: 0;
+                width: 100%;
+                height: 5px;
+                background-color: $l-fail;
+                transition: all .4s ease;
+                transform: scale(0);
+            }
+            &:hover{
+                color: $l-fail;
+                &::before{
+                    transform: scale(1);
+                }
+            }
+        }
+        animation: fade .9s ease ;
+
+    }
+    @import './movies';
+    
+}
